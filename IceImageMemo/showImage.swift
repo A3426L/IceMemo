@@ -121,6 +121,7 @@ struct showImage: View {
                         .scaledToFill()
                         .cornerRadius(20)
                         .onTapGesture {
+                            scale = 1.0
                             withAnimation(.spring(response: 0.4,dampingFraction: 0.6)){
                                 self.show.toggle()
                             }
@@ -129,6 +130,7 @@ struct showImage: View {
                         .frame(maxWidth: show ? .infinity : UIScreen.main.bounds.width - 40,maxHeight:show ?  500 : 470)
                         .offset(offset)
                         .scaleEffect(scale)
+                    
                         .gesture(dragGesture)
                         .simultaneousGesture(scaleGuesture)
                     
