@@ -297,6 +297,7 @@ class CameraModel: NSObject,ObservableObject,AVCapturePhotoCaptureDelegate,AVCap
                     let Noir = convertToNoir(image: turnImage)
                     let uiimage = convert_CtoU(image: Noir)
                     change_directory_and_save(mode: variable2, uiimage_data: uiimage)
+                
                    
                 }
 
