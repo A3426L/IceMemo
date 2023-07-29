@@ -290,9 +290,12 @@ class CameraModel: NSObject,ObservableObject,AVCapturePhotoCaptureDelegate,AVCap
                 if is_binary{
                     change_directory_and_save(mode: variable2, uiimage_data: turnImage)
                 }else{
-                    let greyImage=make_greyscale(image: turnImage)
-                    let binary = make_binary(image: greyImage)
-                    let uiimage = convert_CtoU(image: binary)
+                    //let greyImage=make_greyscale(image: turnImage)
+                    //let binary = make_binary(image: greyImage)
+//                    let outputImage = adjust_filter(image: turnImage)
+//                    let uiimage = convert_CtoU(image: outputImage)
+                    let Noir = convertToNoir(image: turnImage)
+                    let uiimage = convert_CtoU(image: Noir)
                     change_directory_and_save(mode: variable2, uiimage_data: uiimage)
                    
                 }

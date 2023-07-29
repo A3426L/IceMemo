@@ -23,8 +23,30 @@ func convertToMonochrome(image: UIImage) -> UIImage? {
             }
         }
     }
-    return nil // 変換に失敗した場合はnilを返します
+    return nil 
 }
+func convertToNoir(image: UIImage) -> CIImage {
+    let ciImage = CIImage(image: image)
+        let filter = CIFilter(name: "CIPhotoEffectNoir")
+        filter!.setValue(ciImage, forKey: kCIInputImageKey)
+        let output_image = filter?.outputImage
+    return output_image!
+}
+
+//func adjust_filter(image:UIImage) -> CIImage {
+//    let ciimage = CIImage(image: image)
+//    let filter = CIFilter(name: "CIColorControls")!
+//    filter.setValue(ciimage, forKey: "inputSaturation")
+//    //彩度調節
+//    filter.setValue(1.0, forKey: "inputSaturation")
+//    //明度調節
+//    filter.setValue(0.5, forKey: "inputBrightness")
+//    //コントラスト調節
+//    filter.setValue(2.5,forKey: "inputContrast")
+//    let output_Image = filter.outputImage
+//
+//    return output_Image!
+//}
 
 func make_greyscale(image:UIImage) -> CIImage{
     let ciimage = CIImage(image: image)
